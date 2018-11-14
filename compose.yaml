@@ -1,0 +1,24 @@
+version: "3.3"
+
+services:
+  web:
+    image: hostname-app:latest
+    deploy:
+      mode: replicated
+      replicas: 1
+      endpoint_mode: dnsrr
+      placement:
+          constraints:
+            - node.role != manager
+            - node.platform.os == windows
+#            - engine.labels.version == 1803
+    ports:
+      - mode: host
+        target: 80
+        published: 30000
+    networks:
+      - hostnameapp
+
+networks:
+  hostnameapp:
+    driver: overlay

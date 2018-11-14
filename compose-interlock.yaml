@@ -1,0 +1,21 @@
+version: "3.3"
+
+services:
+  web:
+    image: hostname-app:latest
+    deploy:
+      replicas: 1
+      placement:
+          constraints:
+            - node.role != manager
+            - node.platform.os == windows
+      labels:
+        com.docker.lb.hosts: demo.azure.olly.dtcntr.net
+        com.docker.lb.network: hostnameapp
+        com.docker.lb.port: 80
+    networks:
+      - hostnameapp
+
+networks:
+  hostnameapp:
+    driver: overlay
