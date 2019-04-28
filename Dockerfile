@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/framework/aspnet:20190409-4.7.2-windowsservercore-ltsc2019
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-LABEL MAINTAINER=olly@docker.com
+LABEL MAINTAINER=olly@example.com
 
 ARG GIT_VERSION="2.17.1"
 ARG GIT_RELEASE_NUMBER="2"
