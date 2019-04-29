@@ -40,7 +40,7 @@
 
     <body>
         <div>
-            <h1>Hola from <% =GetMachineName() %>!</h1>
+            <h1>Hello DockerCon from <% =GetMachineName() %>!</h1>
         </div>
     </body>
 
